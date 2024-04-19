@@ -31,6 +31,7 @@ class _PostgreSQLBatchWriter(_BatchWriter):
         "double": "NUMERIC",
         "dbl": "NUMERIC",
         "boolean": "BOOLEAN",
+        "bool": "BOOLEAN",
         "str[]": "VARCHAR[]",
         "string[]": "VARCHAR[]",
     }
@@ -53,7 +54,7 @@ class _PostgreSQLBatchWriter(_BatchWriter):
             return self.DATA_TYPE_LOOKUP[string]
         except KeyError:
             logger.info(
-                'Could not determine data type {string}. Using default "VARCHAR"'
+                f'Could not determine data type {string}. Using default "VARCHAR"'
             )
             return "VARCHAR"
 
